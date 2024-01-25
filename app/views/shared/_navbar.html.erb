@@ -1,0 +1,31 @@
+<header data-controller="navbar" class="w-full bg-gray-600 border-b border-gray-400 z-50">
+  <nav class="border-b border-gray-400 top-0 z-20 p-4 w-full grid grid-cols-none shadow-sm bg-navDanna md:max-w-8xl md:grid-cols-menu md:shadow-none md:relative md:mx-auto md:border-b-0">
+    <div class="flex justify-between items-center">
+      <%= link_to "/", class: "pl-4" do %>
+        <%= image_tag "ruby-logo.png", class: "w-12 rounded-full border" %>
+      <% end %>
+      <button data-action="click->navbar#toggleButtonClick" class="logo-button icone-toggle bg-navDanna rounded-md p-2  ring-1 ring-flashDanna ring-opacity-20 md:hidden" data-target="navbar.toggleButton">
+        <span class="sr-only">Ouvrir le menu principal</span>
+        <%= image_tag "menu.svg", alt: "Icône hamburger", class: "w-6 h-6", data: { target: 'navbar.toggleIcon' } %>
+      </button>
+      <ul class="hidden px-1 pt-6 flex-col md:flex md:flex-row md:space-x-10 md:pt-0 md:w-auto md:items-center md:justify-start">
+        <li class="py-2 pl-3">
+          <%= link_to "Connexion", new_user_session_path, class: "font-medium bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-gray-300 hover:text-gray-200 text-center w-56", data: { action: 'click->navbar#linkClick' } %>
+        </li>
+        <li class="py-2 pl-3">
+          <%= link_to "Inscription", new_user_registration_path, class: "font-medium bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-gray-300 hover:text-gray-200 text-center w-56", data: { action: 'click->navbar#linkClick' } %>
+        </li>
+      </ul>
+    </div>
+    <div>
+        <ul data-navbar-target="menu" class="hidden px-1 pt-6 flex-col md:flex md:flex-row md:space-x-10 md:pt-0 md:w-auto md:items-center md:justify-start">
+            <li class="py-2 pl-3">
+                <%= link_to "Connexion", new_user_session_path, class: "font-medium bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-gray-300 hover:text-gray-200 text-center w-56", data: { action: 'click->navbar#linkClick' } %>
+            </li>
+            <li class="py-2 pl-3">
+                <%= link_to "Inscription", new_user_registration_path, class: "font-medium bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-gray-300 hover:text-gray-200 text-center w-56", data: { action: 'click->navbar#linkClick' } %>
+            </li>
+      </ul>
+    </div>
+  </nav>
+</header>
